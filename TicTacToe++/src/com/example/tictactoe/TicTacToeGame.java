@@ -61,6 +61,122 @@ public class TicTacToeGame {
 	/*
 	 * Methods
 	 */
+	public int[][] getBoard() {
+		return board;
+	}
+
+	public int[][] getCompletedBlock() {
+		return completedBlock;
+	}
+
+	protected int[] getCurrentValidBlock() {
+		int validBlock[] = new int[2];
+		validBlock[0] = blockToPlay_x;
+		validBlock[1] = blockToPlay_y;
+		return validBlock;
+	}
+
+	public boolean getIsGameOver() {
+		return isGameOver;
+	}
+
+	public int getRow(int id) {
+		return (id - 1) / 9;
+	}
+
+	public int getColumn(int id) {
+		return id - 1 - ((id - 1) / 9) * 9;
+	}
+
+	public int getTurn() {
+		return playerTurn;
+	}
+
+	public String getWinner() {
+		return winner;
+	}
+
+	private int getBlockMap(int id) {
+
+		for (int i = 0; i < 9; i++) {
+			for (int j = 0; j < 9; j++) {
+				if (MyConstants.MAP[i][j] == id)
+					return i;
+			}
+		}
+		return id;
+	}
+
+	/*
+	 ** Method to update the x co-ordinate of 3X3 block to play in current turn.
+	 *
+	 ** @arguments: int x: x co-ordinate for the turn.
+	 */
+	private void setBlockToPlay_x(int x) {
+		blockToPlay_x = x;
+	}
+
+	/*
+	 ** Method to update the y co-ordinate of 3X3 block to play in current turn.
+	 *
+	 ** @arguments: int y: y co-ordinate for the turn.
+	 */
+	private void setBlockToPlay_y(int y) {
+		blockToPlay_y = y;
+	}
+
+	/*
+	 ** Method to update the variable isGameOver
+	 * 
+	 ** @arguments: boolean isIt : true if Game is Over.
+	 */
+	private void setIsGameOver(boolean isIt) {
+		isGameOver = isIt;
+	}
+
+	/*
+	 ** Method to store name of Player 1
+	 *
+	 ** arguments: String P1 : Name of Player 1
+	 **/
+	private void setPlayerOneName(String P1) {
+		namePlayer1 = P1;
+	}
+
+	/*
+	 ** Method to update the turn of Player
+	 *
+	 ** arguments: int turn: Player whose turn to Play. 0 for P2. 1 for P1
+	 */
+	private void setPlayerTurn(int turn) {
+		playerTurn = turn % 2;
+
+	}
+
+	/*
+	 ** Method to store name of Player 2
+	 *
+	 ** arguments: String P2 : Name of Player 2
+	 */
+	private void setPlayerTwoName(String P2) {
+		namePlayer2 = P2;
+	}
+
+	private void setValidBlock(int id) {
+
+		int temp = getBlockMap(id);
+		blockToPlay_x = temp / 3;
+		blockToPlay_y = temp % 3;
+
+		if (completedBlock[temp / 3][temp % 3] != -1) {
+			blockToPlay_x = -1;
+			blockToPlay_y = -1;
+		}
+	}
+
+	private void setWinner(String win) {
+		winner = win;
+	}
 
 	private int checkBoard(int row, int col) {
 
@@ -138,45 +254,6 @@ public class TicTacToeGame {
 		return true;
 	}
 
-	public int[][] getBoard() {
-		return board;
-	}
-
-	public int[][] getCompletedBlock() {
-		return completedBlock;
-	}
-
-	protected int[] getCurrentValidBlock() {
-		int validBlock[] = new int[2];
-		validBlock[0] = blockToPlay_x;
-		validBlock[1] = blockToPlay_y;
-		return validBlock;
-	}
-
-	public boolean getIsGameOver() {
-		return isGameOver;
-	}
-
-	public int getRow(int id) {
-		return (id - 1) / 9;
-	}
-
-	public int getColumn(int id) {
-		return id - 1 - ((id - 1) / 9) * 9;
-	}
-
-	public int getTurn() {
-		return playerTurn;
-	}
-
-	public String getWinner() {
-		return winner;
-	}
-
-	private void setWinner(String win) {
-		winner = win;
-	}
-
 	/*
 	 ** Initializes starting point of board. -1 signifies the square is available to
 	 * play.
@@ -223,84 +300,6 @@ public class TicTacToeGame {
 			setIsGameOver(isGameOver());
 			setValidBlock(id);
 			setPlayerTurn(playerTurn + 1);
-		}
-	}
-
-	/*
-	 ** Method to update the x co-ordinate of 3X3 block to play in current turn.
-	 *
-	 ** @arguments: int x: x co-ordinate for the turn.
-	 */
-	private void setBlockToPlay_x(int x) {
-		blockToPlay_x = x;
-	}
-
-	/*
-	 ** Method to update the y co-ordinate of 3X3 block to play in current turn.
-	 *
-	 ** @arguments: int y: y co-ordinate for the turn.
-	 */
-	private void setBlockToPlay_y(int y) {
-		blockToPlay_y = y;
-	}
-
-	/*
-	 ** Method to update the variable isGameOver
-	 * 
-	 ** @arguments: boolean isIt : true if Game is Over.
-	 */
-	private void setIsGameOver(boolean isIt) {
-		isGameOver = isIt;
-	}
-
-	/*
-	 ** Method to store name of Player 1
-	 *
-	 ** arguments: String P1 : Name of Player 1
-	 **/
-	private void setPlayerOneName(String P1) {
-		namePlayer1 = P1;
-	}
-
-	/*
-	 ** Method to update the turn of Player
-	 *
-	 ** arguments: int turn: Player whose turn to Play. 0 for P2. 1 for P1
-	 */
-	private void setPlayerTurn(int turn) {
-		playerTurn = turn % 2;
-
-	}
-
-	/*
-	 ** Method to store name of Player 2
-	 *
-	 ** arguments: String P2 : Name of Player 2
-	 */
-	private void setPlayerTwoName(String P2) {
-		namePlayer2 = P2;
-	}
-
-	private int getBlockMap(int id) {
-
-		for (int i = 0; i <= 8; i++) {
-			for (int j = 0; j < 9; j++) {
-				if (MyConstants.MAP[i][j] == id)
-					return i;
-			}
-		}
-		return id;
-	}
-
-	private void setValidBlock(int id) {
-
-		int temp = getBlockMap(id);
-		blockToPlay_x = temp / 3;
-		blockToPlay_y = temp % 3;
-
-		if (completedBlock[temp / 3][temp % 3] != -1) {
-			blockToPlay_x = -1;
-			blockToPlay_y = -1;
 		}
 	}
 
