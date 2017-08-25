@@ -9,6 +9,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.FrameLayout.LayoutParams;
+import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
@@ -244,7 +245,7 @@ public class MainActivity extends Activity implements OnClickListener {
 
 		// inflate the layout of the popup window
 		LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
-		LinearLayout parentLayout = (LinearLayout) mainLayout.findViewById(R.id.orientation);
+		HorizontalScrollView parentLayout = (HorizontalScrollView) mainLayout.findViewById(R.id.orientation);
 		View popupView = inflater.inflate(R.layout.popup_window, parentLayout);
 
 		TextView tv = (TextView) popupView.findViewById(R.id.popup);

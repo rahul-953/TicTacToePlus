@@ -19,7 +19,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_column="1"
-                android:text="Player 1"
+                android:text="@string/player_1"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <TextView
@@ -28,7 +28,7 @@
                 android:layout_height="wrap_content"
                 android:layout_column="2"
                 android:stretchColumns="2"
-                android:text="  v/s  "
+                android:text="@string/versus"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <TextView
@@ -36,7 +36,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:layout_column="3"
-                android:text="Rahul"
+                android:text="@string/player_2"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
         </TableRow>
     </TableLayout>

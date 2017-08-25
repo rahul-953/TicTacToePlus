@@ -3,5 +3,8 @@
 
     <string name="app_name">TicTacToe++</string>
     <string name="hello_world">Hello world!</string>
+    <string name="versus">"  V/S  "</string>
+    <string name="player_1">Player 1</string>
+    <string name="player_2">Rahul</string>
 
 </resources>
