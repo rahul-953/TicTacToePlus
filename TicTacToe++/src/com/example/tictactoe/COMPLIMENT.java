@@ -10,12 +10,12 @@ public class COMPLIMENT {
 	static {
 
 		compliment = new HashMap<String, String>(6);
-		compliment.put("dark_cell.png", "light_cell.png");
-		compliment.put("light_cell.png", "dark_cell.png");
-		compliment.put("dark_cross.png", "light_cross.png");
-		compliment.put("light_cross.png", "dark_cross.png");
-		compliment.put("dark_zero.png", "light_zero.png");
-		compliment.put("light_zero.png", "dark_zero.png");
+		compliment.put("dark_cell", "light_cell");
+		compliment.put("light_cell", "dark_cell");
+		compliment.put("dark_cross", "light_cross");
+		compliment.put("light_cross", "dark_cross");
+		compliment.put("dark_zero", "light_zero");
+		compliment.put("light_zero", "dark_zero");
 	}
 
 	public static String getConjugate(String key) {
