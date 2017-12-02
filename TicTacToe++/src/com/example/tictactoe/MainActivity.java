@@ -18,6 +18,8 @@ import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
+
 public class MainActivity extends Activity implements OnClickListener {
 
 	private TableLayout board;
@@ -44,7 +46,7 @@ public class MainActivity extends Activity implements OnClickListener {
 		player2 = (TextView) findViewById(R.id.player2);
 
 		int count = 1;
-		TableRow row = null;
+		TableRow row ;
 
 		for (int rows = 0; rows < 9; rows++) {
 			row = new TableRow(this);
