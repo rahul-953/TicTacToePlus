@@ -29,7 +29,7 @@ public class MainActivity extends Activity implements OnClickListener {
 	private TicTacToeGame game;
 	private TextView player1, player2;
 
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
